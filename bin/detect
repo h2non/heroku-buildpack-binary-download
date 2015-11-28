@@ -2,10 +2,10 @@
 # bin/detect <build-dir>
 # See https://github.com/h2non/buildpack-binary-exec for license and docs
 
-file='./release'
+file='.release'
 [ ! -z $RELEASE_FILENAME ] && file=$RELEASE_FILENAME
 
-if [ -f $1/$file ]; then
+if [ -f $file ]; then
     echo "BinaryExec"
     exit 0
 else
