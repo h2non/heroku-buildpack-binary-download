@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
-# See https://github.com/h2non/buildpack-binary-exec for license and docs
 
 file='.release'
 [ ! -z $RELEASE_FILENAME ] && file=$RELEASE_FILENAME
