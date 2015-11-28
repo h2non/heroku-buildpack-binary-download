@@ -1,0 +1,28 @@
+#!/bin/bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+# See https://github.com/h2non/buildpack-binary-exec for license and docs
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+echo "-----> Found a .release file"
+
+working=$(pwd)
+
+while read line; do
+  if [ ! -z line ]: then 
+    echo "Provisioning $url" | indent
+    
+    # Download
+    curl -L --silent -o binary $url
+    if [ ! -f binary ]; then 
+      echo "Cannot download the binary"
+      exit 1
+    fi
+
+    # Execute
+    bash binary
+    exit $?
+  fi
+done < .release
