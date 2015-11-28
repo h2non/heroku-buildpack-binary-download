@@ -8,7 +8,7 @@ indent() {
 echo "-----> Found .release file"
 
 while read line; do
-  if [ ! -z line ]: then 
+  if [ ! -z line ]; then 
     echo "Provisioning $url" | indent
     
     # Download
