@@ -22,4 +22,4 @@ while read line; do
     bash $1/binary
     exit $?
   fi
-done < .release
+done < $1/.release
