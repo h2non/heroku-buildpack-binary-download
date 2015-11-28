@@ -2,6 +2,7 @@
 # bin/release <build-dir>
 
 cat << EOF
+---
 addons: []
 default_process_types:
   web: bash $1/binary
