@@ -7,7 +7,7 @@ that can download a executable binary file from a remote URL (such as [Amazon S3
 
 Set up the Buildpack in your app:
 ```bash
-heroku config:add BUILDPACK_URL=https://github.com/h2non/buildpack-binary-exec.git --app <app>
+heroku config:add BUILDPACK_URL=https://github.com/h2non/heroku-buildpack-binary-exec.git --app <app>
 ```
 
 Then create a file called `.release` in the project root directory pointing to the URL of the binary:
