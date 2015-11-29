@@ -5,7 +5,7 @@ file='.release'
 [ ! -z $RELEASE_FILENAME ] && file=$RELEASE_FILENAME
 
 if [ -f $1/$file ]; then
-    echo "BinaryExec"
+    echo "BinaryDownload"
     exit 0
 else
     exit 1
