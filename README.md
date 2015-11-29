@@ -15,7 +15,13 @@ Then create a file called `.release` in the project root directory pointing to t
 http://s3.amazonaws.com/bucket/file.bin
 ```
 
+Binary will be located in the Heroky build directory.
 You use a different file name passing the environment variable, for instance: `RELEASE_FILENAME=download_url`
+
+In order to execute the binary you must create a `Procfile`, optionally passing custom flags:
+```yaml
+web: bash my-binary --env $ENV --debug
+```
 
 ## See also
 
