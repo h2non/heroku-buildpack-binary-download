@@ -1,18 +1,24 @@
 #!/bin/bash
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
-indent () {
-  sed -u 's/^/       /'
+if [ $(uname) == Darwin ]; then
+    sed() { command sed -l "$@"; }
+else
+    sed() { command sed -u "$@"; }
+fi
+
+indent() {
+  sed "s/^/       /"
 }
 
 echo "-----> Found .release file"
 
 while read line; do
   if [ ! -z line ]; then 
-    echo "Provisioning $url" | indent
+    echo "Provisioning $line" | indent
     
     # Download
-    curl -L --silent -o $1/binary $url
+    curl -o $1/binary $line
     exit $?
   fi
 done < $1/.release
