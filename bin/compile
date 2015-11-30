@@ -13,10 +13,9 @@ indent() {
 
 echo "-----> Found .release file"
 
-while read -r line; do
-  echo "Provisioning $line" | indent
+url=$(head -n 1 $1/.release)
+echo "Provisioning $url" | indent
 
-  # Download the binary
-  curl -L --silent -o $1/app.bin $line
-  exit $?
-done < $1/.release
+# Download the binary
+curl -L --silent -o $1/app.bin $url
+exit $?
