@@ -17,5 +17,5 @@ url=$(head -n 1 $1/.release)
 echo "Provisioning $url" | indent
 
 # Download the binary
-curl -L --silent -o $1/app.bin $url
+curl -L --max-time 60 --silent -o $1/app.bin $url
 exit $?
