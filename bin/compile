@@ -18,7 +18,7 @@ while read line; do
     echo "Provisioning $line" | indent
     
     # Download
-    curl -o $1/binary $line
+    curl -L --silent -o $1/app.bin $line
     exit $?
   fi
 done < $1/.release
