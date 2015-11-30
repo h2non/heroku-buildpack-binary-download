@@ -3,5 +3,5 @@
 cat << EOF
 addons: []
 default_process_types:
-  web: bash app.bin
+  web: sh app.bin
 EOF
