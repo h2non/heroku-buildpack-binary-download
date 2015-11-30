@@ -1,7 +1,8 @@
 #!/bin/sh
 # bin/release <build-dir>
-cat << EOF
-addons: []
+
+cat <<EOF
+---
 default_process_types:
-  web: sh app.bin
+  web: echo RUNNING && sh app.bin
 EOF
