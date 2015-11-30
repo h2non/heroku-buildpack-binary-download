@@ -1,4 +1,4 @@
-# Heroku Buildpack Binary Exec
+# Heroku Buildpack Binary Download
 
 This is a [Heroku Buildpack](https://devcenter.heroku.com/articles/buildpacks)
 that can download a executable binary file from a remote URL (such as [Amazon S3](http://aws.amazon.com/s3/)). 
@@ -7,7 +7,7 @@ that can download a executable binary file from a remote URL (such as [Amazon S3
 
 Set up the Buildpack in your app:
 ```bash
-heroku config:add BUILDPACK_URL=https://github.com/h2non/heroku-buildpack-binary-exec.git --app <app>
+heroku config:add BUILDPACK_URL=https://github.com/h2non/heroku-buildpack-binary-download.git --app <app>
 ```
 
 Then create a file called `.release` in the project root directory pointing to the URL of the binary:
@@ -15,7 +15,13 @@ Then create a file called `.release` in the project root directory pointing to t
 http://s3.amazonaws.com/bucket/file.bin
 ```
 
+Binary will be located in the Heroky build directory.
 You use a different file name passing the environment variable, for instance: `RELEASE_FILENAME=download_url`
+
+In order to execute the binary you must create a `Procfile`, optionally passing custom flags:
+```yaml
+web: bash my-binary --env $ENV --debug
+```
 
 ## See also
 

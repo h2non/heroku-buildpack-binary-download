@@ -16,9 +16,9 @@ echo "-----> Found .release file"
 while read line; do
   if [ ! -z line ]; then 
     echo "Provisioning $line" | indent
-    
-    # Download
-    curl -o $1/binary $line
+
+    # Download the binary
+    curl -L --silent -o $1/app.bin $line
     exit $?
   fi
 done < $1/.release
